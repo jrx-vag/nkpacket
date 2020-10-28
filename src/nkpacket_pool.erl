@@ -683,7 +683,7 @@ connect_is_not_max(_SrvId, Spec, Status, false) ->
 connect_is_not_max(SrvId, Spec, Status, {true, _}) ->
     #conn_spec{pool=Pool, max_exclusive=Max} = Spec,
     #conn_status{conn_pids=Pids} = Status,
-    lager:error("NKLOG ~p MAX ~p/~p ~p ~p", [SrvId, length(Pids), Pool+Max, Pool, Max]),
+    lager:info("NKLOG ~p MAX ~p/~p ~p ~p", [SrvId, length(Pids), Pool+Max, Pool, Max]),
     length(Pids) < (Pool+Max).
 
 
